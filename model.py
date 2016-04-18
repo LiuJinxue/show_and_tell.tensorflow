@@ -10,9 +10,11 @@ from tensorflow.models.rnn import rnn_cell
 import tensorflow.python.platform
 from keras.preprocessing import sequence
 from collections import Counter
-from cnn_util import *
+from cnn_util import crop_image
+
 
 class Caption_Generator():
+
     def init_weight(self, dim_in, dim_out, name=None, stddev=1.0):
         return tf.Variable(tf.truncated_normal([dim_in, dim_out], stddev=stddev/math.sqrt(float(dim_in))), name=name)
 
