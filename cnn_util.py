@@ -1,20 +1,15 @@
-print('cnn_util')
 # import caffe
-
-print('1')
 import cv2
 import numpy as np
 import skimage
 import skimage.io
 
 
-def crop_image(x, target_height=227, target_width=227, as_float=True):
-    # image = skimage.img_as_float(skimage.io.imread(x)).astype(np.float32)
-    #if as_float:
-     #   image = skimage.img_as_float(image).astype(np.float32)
-    print x
-    image = skimage.io.imread(x)
-    print image.shape
+def crop_image(image_path, target_height=227, target_width=227, as_float=True):
+
+    image = skimage.io.imread(image_path)
+    if as_float:
+       image = skimage.img_as_float(image).astype(np.float32)
 
     if len(image.shape) == 2:
         image = np.tile(image[:,:,None], 3)
